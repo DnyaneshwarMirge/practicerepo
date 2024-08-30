@@ -23,7 +23,7 @@ RUN sed -i 's/MYSQL_DATABASE/'$MYSQL_DATABASE'/g' /etc/mysql/student.sql
 RUN cp /etc/mysql/student.sql /docker-entrypoint-initdb.d/student.sql
 
 EXPOSE 3306
-CMD ["mysqld"]
+
 
 # HOW to Run the container
 # docker run -d -p 3306:3306 --name mysql-container \
