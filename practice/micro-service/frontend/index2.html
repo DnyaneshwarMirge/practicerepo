@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Dynamic Home Page</h1>
+        <button onclick="https://github.com/DnyaneshwarMirge/micro-websites/tree/main">puppy</button>
+        <button onclick="navigateTo('todo')">Todo</button>
+        <button onclick="navigateTo('season')">Season</button>
+        <button onclick="navigateTo('traffic')">Traffic</button>
+        <button onclick="navigateTo('counter')">Counter</button>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            alert('You clicked the ' + page + ' button');
+            // In a real application, you might redirect to a different page:
+            // window.location.href = page + ".html";
+        }
+    </script>
+</body>
+</html>
