@@ -5,9 +5,9 @@ services:
     build: .
     ports:
       - '80:80'  # Corrected 'port' to 'ports' and fixed the syntax
-    container_name: nginx-neogym
+    container_name: apache2
     volumes:
-      - myapp:/usr/share/nginx/html/  # Corrected 'volume' to 'volumes'
+      - myapp:/var/www/html/  # Corrected 'volume' to 'volumes'
     network_mode: bridge
 
 volumes:

@@ -4,13 +4,13 @@ FROM ubuntu:latest
 LABEL DEVOPSENGG="D"
 
 RUN apt update 
-RUN apt install unzip nginx -y
-RUN rm -rf /usr/share/nginx/html/index.html
+RUN apt install unzip apache2 -y
+RUN rm -rf /var/www/html/index.html
 
-WORKDIR /usr/share/nginx/html/
+WORKDIR /var/www/html
 
-COPY neogym-html /usr/share/nginx/html/
+COPY neogym-html /var/www/html/
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["apachectl", "-D", "FOREGROUND"]
