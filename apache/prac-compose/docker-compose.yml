@@ -1,9 +1,12 @@
 services:
   frontend-neogym:
-  build: -./
-  port: -'80:80'
-  container_name: nginx-neogym
-volume:
-  -myapp:/usr/share/nginx/html/
-network_mode:
-  bridge
+    build: ./
+    ports:
+      - '80:80'  # Corrected 'port' to 'ports' and fixed the syntax
+    container_name: nginx-neogym
+    volumes:
+      - myapp:/usr/share/nginx/html/  # Corrected 'volume' to 'volumes'
+    network_mode: bridge
+
+volumes:
+  myapp:  # Added the 'volumes' section to define the named volume
