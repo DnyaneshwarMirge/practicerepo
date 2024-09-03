@@ -1,0 +1,11 @@
+services:
+  frontend-neogym:
+  build: -./
+  port: -'80:80'
+  container_name: nginx-neogym
+volume:
+  -myapp:/usr/share/nginx/html/
+network_mode:
+  bridge
+volume:
+  v1:
