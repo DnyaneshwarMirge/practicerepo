@@ -7,5 +7,3 @@ volume:
   -myapp:/usr/share/nginx/html/
 network_mode:
   bridge
-volume:
-  v1:
