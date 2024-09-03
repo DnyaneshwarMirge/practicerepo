@@ -1,6 +1,6 @@
 services:
   frontend-neogym:
-    build: ./
+    build: -./
     ports:
       - '80:80'  # Corrected 'port' to 'ports' and fixed the syntax
     container_name: nginx-neogym
