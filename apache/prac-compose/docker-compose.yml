@@ -1,3 +1,5 @@
+version: '3.8'  # Specify the version
+
 services:
   frontend-neogym:
     build: .
@@ -10,3 +12,4 @@ services:
 
 volumes:
   myapp:  # Added the 'volumes' section to define the named volume
+
