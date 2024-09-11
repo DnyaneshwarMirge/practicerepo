@@ -1,12 +1,16 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1 
+kind: pod
 metadata: 
-      name: new-app
+      name: mypod
 spec:
-    containers: 
-        - name: mynginxpod 
-          image: nginx:latest
-          ports: 
-              - containerPort: 80
-                name: http
-                protocol: TCP
+    containers:
+          - name: mypod
+            image: nginx:latest
+          resourses:
+                requests: 
+                     cpu: "50m"
+                     memory: "90Mi"
+          ports:
+             name: http
+             containersPort: 80
+             protocol: TCP
