@@ -5,7 +5,7 @@ metadata:  #like a tag
 spec:
  containers:
     - name: mypod-cont2
-      image: dmirge/todo:latest
+      image: dmirge/todo
       resources: 
           requests:
             cpu: "50m"
