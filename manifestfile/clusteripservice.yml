@@ -1,12 +1,30 @@
-apiVersion: v1
-kind: Service
-metadata: 
-       name: clusterip
+apiVersion: v1  # Kubernetes API version
+kind: Pod
+metadata:  # Metadata for the Pod
+  name: mypod3
 spec:
-    selector:
-        app: mypod
-    type: ClusterIp
-    ports:
-      - protocol: TCP
-        port: 80
-        name: nginx
+  containers:
+    - name: mypod-cont3
+      image: nginx:latest
+      resources: 
+        requests:
+          cpu: "50m"
+          memory: "90Mi"        
+      ports:  
+        - name: http
+          containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: clusterip #cluster IP type service
+spec:
+  selector:
+    app: mypod3  # This matches the label in the Pod
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80  # Target port for the service to forward traffic
+      name: nginx
