@@ -1,32 +1,39 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod2
+  name: todo
+  namespace: microstatic
   labels:
-    app: mypod2
+    app: todo
+
 spec:
   containers:
-    - name: mypod-cont2
-      image: dmirge/todo
-      resources:
+  - name: todo
+    image: swapnil0078/todoapp:latest
+    resources: 
         requests:
-          cpu: "50m"
-          memory: "100Mi"
-      ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
+            cpu: "50m"
+            memory: "90Mi" 
+    ports:
+      - name: http
+        containerPort: 80
+        protocol: TCP
+
 ---
+
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb
+  name: todoip
+  namespace: microstatic
+
 spec:
+  type: ClusterIP
   selector:
-    app: mypod2
-  type: LoadBalancer
+    app: todo
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      name: todo
+  - port: 80
+    # targetPort: 80
+    name: todoip
+    protocol: TCP
