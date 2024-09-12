@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: todolb
-  namespace: todoservice
+  name: todo
+  namespace: servertodo
   labels:
-    app: todolb
+    app: todo
 
 spec:
   containers:
-  - name: todolb
+  - name: todo
     image: swapnil0078/todoapp:latest
     resources: 
         requests:
@@ -25,22 +25,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: todolb
-  namespace: todoservice
+  name: todoip
+  namespace: servertodo
 
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
-    app: todolb
+    app: todo
   ports:
   - port: 80
-    targetPort: 80
-    name: todolb
+    # targetPort: 80
+    name: todoip
     protocol: TCP
-
-    ---
-
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: todoservice
