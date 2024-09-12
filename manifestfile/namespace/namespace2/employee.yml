@@ -9,7 +9,7 @@ metadata:
 spec:
   containers:
   - name: employeelb
-    image: swapnil0078/employee:micro
+    image: dmirge/employee:micro
     resources: 
         requests:
             cpu: "50m"
