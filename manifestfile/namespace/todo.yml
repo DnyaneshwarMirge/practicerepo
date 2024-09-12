@@ -26,6 +26,6 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: swapnil0078/todoapp
+          image: dmirge/todo:latest
           ports:
             - containerPort: 8080
