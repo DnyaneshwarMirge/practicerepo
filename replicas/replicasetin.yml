@@ -1,28 +1,27 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind:  ReplicaSet
 metadata: 
-     name: replicapodin
-     labels: 
-          app: replicapodin
-spec:
-    replicas: 3
+       name: podreplicain
+       labels:
+            app: podreplicain
+spec: 
+    replicas: 3  #how many replica's you want to create on the basis of template
     template:
-       metadata:
-           labels:
-              app: replicapodin
+      metadata:  #like a tag
+         labels: 
+            app: podreplicain
       spec:
-          containers:
-                - name: replicapodin
-                  image: nginx:latest
-                  resources:
-                       requests:
-                       cpu: "50m"
-                       memory: "90Mi"
-                  ports:
-                     -name: http
-                     containerPort: 80
-                      protocol: TCP
-
-      selector: 
+        containers:
+            - name: mypod-cont1
+              image: nginx:latest
+              resources: 
+                  requests:
+                    cpu: "50m"
+                    memory: "90Mi"        
+              ports:  
+                - name: http
+                  containerPort: 80
+                  protocol: TCP
+    selector: 
           matchExpressions: 
-            - {key: app, operator: In, values: [replicapodin, mobappreplica]}
+            - {key: app, operator: In, values: [podreplicain, mobappreplica]}
