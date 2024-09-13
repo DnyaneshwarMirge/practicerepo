@@ -5,9 +5,9 @@ metadata:
        labels:
             app: podreplicain
 spec: 
-    replicas: 3  #how many replica's you want to create on the basis of template
+    replicas: 3  
     template:
-      metadata:  #like a tag
+      metadata:  
          labels: 
             app: podreplicain
       spec:
