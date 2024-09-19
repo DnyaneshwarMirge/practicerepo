@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-        name: studentapp
+        name: todo
         labels:
-            app: studentapp
+            app: todo
 spec:
     replicas: 14
     strategy: 
@@ -13,17 +13,17 @@ spec:
           maxUnavailable: 2  # Maximum number of pods that can be unavailable during the update 
     template:
           metadata: 
-                name: studentapp 
+                name: todo
                 labels:
-                      app: studentapp
+                      app: todo
           spec:
               containers:
                   - name: http
-                    image: nginx 
+                    image: dmirge/todo:latest
                     ports:
                         - name: http
                           containerPort: 80
                           protocol: TCP      
     selector:
         matchLabels:
-            app: studentapp
+            app: todo
