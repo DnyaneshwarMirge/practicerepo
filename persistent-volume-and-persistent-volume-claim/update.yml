@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: my-container
-      image: dmirge/student.war  # DockerHub username and image name
+      image: dmirge/student:latest # DockerHub username and image name
       ports:
         - containerPort: 8080    # Ensure this matches the app's listening port
       volumeMounts:
