@@ -13,3 +13,15 @@ spec:
     - name: my-storage
       persistentVolumeClaim:
         claimName: my-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: LoadBalancer  # This creates an external LoadBalancer
+  ports:
+    - port: 80       # External port
+      targetPort: 8080 # Port on the container (adjust based on your app's port)
+  selector:
+    app: my-pod
