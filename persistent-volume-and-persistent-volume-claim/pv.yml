@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 1Gi  # Size of the volume
+  accessModes:
+    - ReadWriteOnce  # Access mode, can also be ReadWriteMany or ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain  # What happens when the claim is released
+  storageClassName: standard  # Storage class (if applicable)
+  hostPath:
+    path: "/mnt/data"  # Location on the host
+

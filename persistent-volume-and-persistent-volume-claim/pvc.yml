@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce  # Access mode as defined in PV
+  resources:
+    requests:
+      storage: 1Gi  # Storage amount requested
+  storageClassName: standard  # Must match with PV storage class
